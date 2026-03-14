@@ -18,11 +18,14 @@ version: ## Print the most recent version
 next: ## Create a new version (bump prerelease or patch)
 	@scripts/tools.sh next
 
-check: make gen fmt statan test cov diff cleanup ## Run all CI required targets
+check: make prep gen fmt statan test cov diff cleanup ## Run all CI required targets
 
 ###########
 ## D E V ##
 ###########
+
+prep: ## Prepare dev tools
+	@scripts/tools.sh prep
 
 cmd: ## Run a command passed as COMMAND= value (e.g. make cmd COMMAND="make check")
 	@scripts/tools.sh cmd
