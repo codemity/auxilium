@@ -33,7 +33,7 @@ case "$1" in
     ;;
 
   *)
-    echo "error: incorrect '$1' command..."
+    echo "error: incorrect '$2' subcommand..."
     ;;
 
   esac
@@ -49,7 +49,6 @@ case "$1" in
 "update")
   COMMAND="go mod init github.com/${VENDOR}/$(basename "${PWD}")"
   export COMMAND
-  rm -rf go.*
   rm -rf go.* && scripts/tools.sh cmd
   scripts/tools.sh fmt
   ;;

@@ -61,7 +61,7 @@ test-race: ## Run race tests
 	@scripts/tools.sh test-race
 
 cov: ## Check coverage
-	#@scripts/tools.sh cov # temporary disabled: todo: enable when possible...
+	@scripts/tools.sh cov
 
 cov-report: ## Check coverage report
 	@scripts/tools.sh cov-report
