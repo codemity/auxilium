@@ -10,12 +10,12 @@ fi
 case "$1" in
 
 "tag")
-  docker tag "${IMAGE_NAME}":latest "${IMAGE_NAME}:$(./scripts/tools.sh version)"
+  docker tag "${IMAGE_NAME}":latest "${IMAGE_NAME}:$(scripts/tools.sh version)"
   ;;
 
 "push")
   pushImage "${IMAGE_NAME}:latest"
-  pushImage "${IMAGE_NAME}:${version}"
+  pushImage "${IMAGE_NAME}:$(scripts/tools.sh version)"
   ;;
 
 *)
