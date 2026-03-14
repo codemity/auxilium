@@ -85,6 +85,16 @@ build: ## Build container image
 install: ## Install binary locally
 	@scripts/tools.sh install
 
+#################
+## D O C K E R ##
+#################
+
+tag: ## Tag image
+	@scripts/docker.sh tag
+
+push: ## Push image
+	@scripts/docker.sh push
+
 ##########################
 ## D A N G E R  Z O N E ##
 ##########################
