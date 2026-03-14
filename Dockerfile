@@ -19,7 +19,7 @@ COPY "*.go" "."
 RUN mkdir -p bin \
     && go build \
   -ldflags "\
--X 'main.name=${BASE_NAME}' \
+-X 'main.name=${NAME}' \
 -X 'main.version=${VERSION}' \
 -X 'main.copyright=${VENDOR}' \
 -X 'main.authorName=${VENDOR}' \
