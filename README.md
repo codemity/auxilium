@@ -18,7 +18,7 @@ Navigate the available options using the arrow keys: `↓ ↑ → ←`. Use `/` 
 ## Installation
 
 To install the tool use `make install` (directly from the repository clone) or use
-`go install github.com/codemity/auxilium@latest`.
+`go install github.com/codemityio/auxilium@latest`.
 
 ## Usage
 

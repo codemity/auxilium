@@ -10,8 +10,7 @@ fi
 case "$1" in
 
 "prep")
-  go install github.com/codemity/auxilium@latest
-  go install github.com/codemity/goforma@latest
+  # Coming soon...
   ;;
 
 "cmd")
@@ -102,12 +101,12 @@ EOF
 
 "cov")
   go tool cover -func="tmp/coverage.out" -o tmp/coverage.in
-  goforma badge \
-    --document=README.md \
-    --id=coverage-badge-do-not-edit \
-    coverage \
-    --cov-file-path=tmp/coverage.in \
-    --minimum="${MINIMUM_COVERAGE}"
+  #goforma badge \
+  #  --document=README.md \
+  #  --id=coverage-badge-do-not-edit \
+  #  coverage \
+  #  --cov-file-path=tmp/coverage.in \
+  #  --minimum="${MINIMUM_COVERAGE}"
   ;;
 
 "cov-report")

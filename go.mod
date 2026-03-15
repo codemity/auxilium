@@ -1,4 +1,4 @@
-module github.com/codemity/auxilium
+module github.com/codemityio/auxilium
 
 go 1.25.8
 
