@@ -175,7 +175,7 @@ EOF
 "install")
   go install -ldflags "\
   -X 'main.name=${BASE_NAME}' \
--X 'main.version=$(scripts/tools.sh version)' \
+-X 'main.version=latest' \
 -X 'main.copyright=${VENDOR}' \
 -X 'main.authorName=${VENDOR}' \
 -X 'main.buildTime=$(date -u +"%Y-%m-%dT%H:%M:%SZ")'\
