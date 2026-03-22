@@ -73,33 +73,7 @@ COPYRIGHT:
 ### Docker
 
 ``` bash
-$ docker run codemityio/auxilium --help
-NAME:
-   auxilium - A new cli application
-
-USAGE:
-   auxilium [global options] command [command options]
-
-VERSION:
-   v0.0.5
-
-DESCRIPTION:
-   A collection of auxiliary tools for automating and simplifying common project tasks
-   and supporting project workflows and operations.
-
-AUTHOR:
-   codemityio
-
-COMMANDS:
-   select   
-   help, h  Shows a list of commands or help for one command
-
-GLOBAL OPTIONS:
-   --help, -h     show help
-   --version, -v  print the version
-
-COPYRIGHT:
-   codemityio
+$ docker run codemityio/auxilium
 ```
 
 ## Packages

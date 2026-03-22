@@ -17,7 +17,7 @@ case "$1" in
 
 "cmd")
   docker run --rm \
-    --user $(id -u):$(id -g) \
+    --user "$(id -u):$(id -g)" \
     --name "${BASE_NAME}-cmd" \
     -e DEBUG \
     -e GOCACHE="${PWD}/tmp" \
@@ -167,7 +167,7 @@ EOF
     --build-arg VENDOR \
     --build-arg BASE_IMAGE_VERSION=latest \
     --build-arg NAME="${BASE_NAME}" \
-    --build-arg VERSION=$(scripts/tools.sh version) \
+    --build-arg VERSION="$(scripts/tools.sh version)" \
     --build-arg BUILD_TIME="$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
     -t "${IMAGE_NAME}:latest" \
     -f Dockerfile .
