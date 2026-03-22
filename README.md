@@ -45,7 +45,7 @@ USAGE:
    auxilium [global options] command [command options]
 
 VERSION:
-   v0.0.5
+   latest
 
 DESCRIPTION:
    A collection of auxiliary tools for automating and simplifying common project tasks
