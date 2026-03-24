@@ -37,6 +37,10 @@ COPY --from=build /tmp/build/bin/app /opt/app/bin/app
 
 ADD entrypoint.sh /
 
+RUN adduser -D -h /home/commander -s /bin/bash commander
+
 RUN ["chmod", "+x", "/entrypoint.sh"]
+
+USER commander
 
 ENTRYPOINT ["/entrypoint.sh"]
