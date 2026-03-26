@@ -10,9 +10,9 @@ fi
 case "$1" in
 
 "prep")
-#  scripts/tools.sh install
-#  go install github.com/"${VENDOR}"/notatio@latest
-#  go install github.com/"${VENDOR}"/goforma@latest
+  scripts/tools.sh install
+  go install github.com/"${VENDOR}"/notatio@latest
+  go install github.com/"${VENDOR}"/goforma@latest
   ;;
 
 "cmd")
@@ -102,13 +102,13 @@ EOF
   ;;
 
 "cov")
-#  go tool cover -func="tmp/coverage.out" -o tmp/coverage.in
-#  goforma badge \
-#    --document=README.md \
-#    --id=coverage-badge-do-not-edit \
-#    coverage \
-#    --cov-file-path=tmp/coverage.in \
-#    --minimum="${MINIMUM_COVERAGE}"
+  go tool cover -func="tmp/coverage.out" -o tmp/coverage.in
+  goforma badge \
+    --document=README.md \
+    --id=coverage-badge-do-not-edit \
+    coverage \
+    --cov-file-path=tmp/coverage.in \
+    --minimum="${MINIMUM_COVERAGE}"
   ;;
 
 "cov-report")
