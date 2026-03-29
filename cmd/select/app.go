@@ -39,6 +39,11 @@ var App = cli.Command{ //nolint:gochecknoglobals,exhaustruct
 			Usage: "an option delimiter used to split option names from the remaining content to be used as description",
 			Value: " ",
 		},
+		&cli.IntFlag{ //nolint:exhaustruct
+			Name:  "size",
+			Usage: "a list size",
+			Value: selectSize,
+		},
 		&cli.StringFlag{ //nolint:exhaustruct
 			Name:  "select-name-label",
 			Usage: "a label for the details menu name field label",

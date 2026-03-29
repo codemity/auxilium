@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 source scripts/func.sh
 
 # Note: the set [-/+] x is purely there to turn on and off outputting of the commands being executed.
@@ -11,6 +13,7 @@ case "$1" in
 
 "prep")
   scripts/tools.sh install
+  GOPROXY=direct
   go install github.com/"${VENDOR}"/notatio@latest
   go install github.com/"${VENDOR}"/goforma@latest
   ;;

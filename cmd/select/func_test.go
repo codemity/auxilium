@@ -57,22 +57,24 @@ func TestAction(t *testing.T) {
 			},
 		},
 		{
-			// No TTY in tests: prompt.Run() fails and action returns errPrompt.
-			name: "single item reaches prompt, no TTY returns errPrompt",
+			// No TTY in tests: prompt.Run() receives EOF/interrupt and action returns nil gracefully.
+			name: "single item reaches prompt, no TTY returns nil",
 			strFlags: map[string]string{
 				"list": "foo",
 			},
-			wantErr: errPrompt,
+			wantErr: nil,
 		},
 		{
-			name: "multi-item list builds options then returns errPrompt",
+			// No TTY in tests: prompt.Run() receives EOF/interrupt and action returns nil gracefully.
+			name: "multi-item list builds options then returns nil",
 			strFlags: map[string]string{
 				"list":      "alpha=1\nbeta=2\ngamma=3",
 				"delimiter": "=",
 			},
-			wantErr: errPrompt,
+			wantErr: nil,
 		},
 		{
+			// No TTY in tests: prompt.Run() receives EOF/interrupt and action returns nil gracefully.
 			name: "non-empty exit-name prepends an option",
 			strFlags: map[string]string{
 				"list":       "item=val",
@@ -80,9 +82,10 @@ func TestAction(t *testing.T) {
 				"exit-name":  "Quit",
 				"exit-value": "q",
 			},
-			wantErr: errPrompt,
+			wantErr: nil,
 		},
 		{
+			// No TTY in tests: prompt.Run() receives EOF/interrupt and action returns nil gracefully.
 			name: "exit-name with empty exit-value is valid",
 			strFlags: map[string]string{
 				"list":       "item=val",
@@ -90,53 +93,59 @@ func TestAction(t *testing.T) {
 				"exit-name":  "Back",
 				"exit-value": "",
 			},
-			wantErr: errPrompt,
+			wantErr: nil,
 		},
 		{
 			// App default for exit-name is "." so the exit option is prepended.
+			// No TTY in tests: prompt.Run() receives EOF/interrupt and action returns nil gracefully.
 			name: "default exit-name dot is treated as non-empty",
 			strFlags: map[string]string{
 				"list":      "item=val",
 				"delimiter": "=",
 			},
-			wantErr: errPrompt,
+			wantErr: nil,
 		},
 		{
+			// No TTY in tests: prompt.Run() receives EOF/interrupt and action returns nil gracefully.
 			name: "empty exit-name suppresses exit option",
 			strFlags: map[string]string{
 				"list":      "item=val",
 				"delimiter": "=",
 				"exit-name": "",
 			},
-			wantErr: errPrompt,
+			wantErr: nil,
 		},
 		{
 			// No delimiter match: Name = ll[0], Value = "".
+			// No TTY in tests: prompt.Run() receives EOF/interrupt and action returns nil gracefully.
 			name: "list entry without delimiter uses whole entry as name",
 			strFlags: map[string]string{
 				"list":      "onlyname",
 				"delimiter": "=",
 			},
-			wantErr: errPrompt,
+			wantErr: nil,
 		},
 		{
 			// Extra delimiter tokens are re-joined into Value.
+			// No TTY in tests: prompt.Run() receives EOF/interrupt and action returns nil gracefully.
 			name: "list entry with multiple delimiters joins remainder as value",
 			strFlags: map[string]string{
 				"list":      "key=part1=part2",
 				"delimiter": "=",
 			},
-			wantErr: errPrompt,
+			wantErr: nil,
 		},
 		{
+			// No TTY in tests: prompt.Run() receives EOF/interrupt and action returns nil gracefully.
 			name: "tab delimiter splits correctly",
 			strFlags: map[string]string{
 				"list":      "col1\tcol2",
 				"delimiter": "\t",
 			},
-			wantErr: errPrompt,
+			wantErr: nil,
 		},
 		{
+			// No TTY in tests: prompt.Run() receives EOF/interrupt and action returns nil gracefully.
 			name: "custom select-name-label and select-value-label are accepted",
 			strFlags: map[string]string{
 				"list":               "item=val",
@@ -144,16 +153,17 @@ func TestAction(t *testing.T) {
 				"select-name-label":  "Option",
 				"select-value-label": "Result",
 			},
-			wantErr: errPrompt,
+			wantErr: nil,
 		},
 		{
+			// No TTY in tests: prompt.Run() receives EOF/interrupt and action returns nil gracefully.
 			name: "custom label is accepted",
 			strFlags: map[string]string{
 				"list":      "item=val",
 				"delimiter": "=",
 				"label":     "Pick something",
 			},
-			wantErr: errPrompt,
+			wantErr: nil,
 		},
 	}
 
@@ -171,9 +181,9 @@ func TestAction(t *testing.T) {
 }
 
 // TestActionWriteError confirms that a write failure on os.Stdout surfaces as
-// errWrite. In practice the prompt fails before any write without a real TTY,
-// so this test documents the known gap: exercising errWrite fully requires
-// injecting a fake promptui.Select.
+// errWrite. In practice the prompt exits gracefully without a real TTY (EOF is
+// treated as a cancel, not an error), so this test documents the known gap:
+// exercising errWrite fully requires injecting a fake promptui.Select.
 func TestActionWriteError(t *testing.T) {
 	badOut, err := os.Open(os.DevNull)
 	require.NoError(t, err)
@@ -190,6 +200,6 @@ func TestActionWriteError(t *testing.T) {
 		"exit-name": "",
 	}, nil)
 
-	require.ErrorIs(t, action(ctx), errPrompt,
-		"without a TTY the prompt error is returned before any write attempt")
+	require.NoError(t, action(ctx),
+		"without a TTY the prompt receives EOF and exits gracefully before any write attempt")
 }
