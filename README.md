@@ -6,6 +6,7 @@
 
 - [Summary](#summary)
 - [Development](#development)
+  - [`make`](#make)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Manual](#manual)
@@ -24,6 +25,52 @@ operations.
 To work with the codebase, use `make` command as the primary entry point for all project tools.
 
 Use the arrow keys `↓ ↑ → ←` to navigate the options, and press `/` to toggle search.
+
+### `make`
+
+``` bash
+$ SIZE=100 make
+Use the arrow keys to navigate: ↓ ↑ → ←  and / toggles search
+Choose:
+  > .
+    build
+    buildx
+    check
+    cleanup
+    cmd
+    cov-open
+    cov-report
+    cov
+    diff
+    docs-cmd
+    docs-depgraph
+    docs-main
+    docs-pkg
+    docs-render
+    docs-uml
+    docs
+    fmt
+    gen
+    go
+    help
+    install
+    next
+    prep
+    push
+    reset
+    run-container
+    run-go
+    statan-fix
+    statan
+    test-race
+    test
+    update
+    vendor
+    version
+
+Select:
+Target: .
+```
 
 ## Installation
 

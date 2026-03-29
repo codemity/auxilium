@@ -1,6 +1,7 @@
 package slct
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"strings"
@@ -13,6 +14,7 @@ func action(ctx *cli.Context) error {
 	list := ctx.String("list")
 	label := ctx.String("label")
 	delimiter := ctx.String("delimiter")
+	size := ctx.Int("size")
 	selectNameLabel := ctx.String("select-name-label")
 	selectValueLabel := ctx.String("select-value-label")
 	exitName := ctx.String("exit-name")
@@ -65,13 +67,17 @@ func action(ctx *cli.Context) error {
 		Label:     label,
 		Items:     options,
 		Templates: templates,
-		Size:      selectSize,
+		Size:      size,
 		Searcher:  searcher,
 		Stdout:    os.Stderr,
 	}
 
 	index, _, err := prompt.Run()
 	if err != nil {
+		if errors.Is(err, promptui.ErrInterrupt) || errors.Is(err, promptui.ErrEOF) {
+			return nil // graceful exit, not an error
+		}
+
 		return fmt.Errorf("%w: %w", errPrompt, err)
 	}
 
