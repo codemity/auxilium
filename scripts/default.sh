@@ -8,7 +8,7 @@ if [ ! -t 0 ] || [ "${CI}" = "true" ]; then
 fi
 
 if ! command -v auxilium &>/dev/null; then
-  echo "Please install (https://github.com/${VENDOR}/auxilium) tools..."
+  echo "Please run \`make install\` before using the tools..."
 else
   list=$(echo "${entries}" | awk 'BEGIN {FS = ":.*?## "}; {printf "%s %s\n", $1, $2}')
   targets=$(auxilium select --select-name-label="Target" --select-value-label="Description" --list="$list" ${SIZE:+--size=${SIZE}})
