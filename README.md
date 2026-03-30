@@ -26,52 +26,6 @@ To work with the codebase, use `make` command as the primary entry point for all
 
 Use the arrow keys `↓ ↑ → ←` to navigate the options, and press `/` to toggle search.
 
-### `make`
-
-``` bash
-$ SIZE=100 make
-Use the arrow keys to navigate: ↓ ↑ → ←  and / toggles search
-Choose:
-  > .
-    build
-    buildx
-    check
-    cleanup
-    cmd
-    cov-open
-    cov-report
-    cov
-    diff
-    docs-cmd
-    docs-depgraph
-    docs-main
-    docs-pkg
-    docs-render
-    docs-uml
-    docs
-    fmt
-    gen
-    go
-    help
-    install
-    next
-    prep
-    push
-    reset
-    run-container
-    run-go
-    statan-fix
-    statan
-    test-race
-    test
-    update
-    vendor
-    version
-
-Select:
-Target: .
-```
-
 ## Installation
 
 To install the tool use `make install` (directly from the repository clone) or use
