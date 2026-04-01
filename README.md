@@ -1,6 +1,6 @@
 # ![Auxilium](logo.jpg)
 
-![coverage-badge-do-not-edit](https://img.shields.io/badge/Coverage-63%25-yellow.svg?longCache=true&style=flat)
+![coverage-badge-do-not-edit](https://img.shields.io/badge/Coverage-64%25-yellow.svg?longCache=true&style=flat)
 
 ## Table of contents
 
@@ -55,8 +55,9 @@ AUTHOR:
    codemityio
 
 COMMANDS:
-   select   
-   help, h  Shows a list of commands or help for one command
+   select    
+   validate  
+   help, h   Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
    --help, -h     show help
@@ -69,6 +70,7 @@ COPYRIGHT:
 ### Subcommands
 
 - [`select`](cmd/select/README.md) - An interactive select command.
+- [`validate`](cmd/validate/README.md) - Command line **JSON Schema** validator.
 
 ### Docker
 
