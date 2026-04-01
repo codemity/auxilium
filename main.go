@@ -5,6 +5,7 @@ import (
 	"os"
 
 	slct "github.com/codemityio/auxilium/cmd/select"
+	"github.com/codemityio/auxilium/cmd/validate"
 	"github.com/codemityio/auxilium/internal/app"
 	"github.com/urfave/cli/v2"
 )
@@ -25,6 +26,7 @@ and supporting project workflows and operations.`,
 
 	application.Commands = []*cli.Command{
 		&slct.App,
+		&validate.App,
 	}
 
 	if e := application.Run(os.Args); e != nil {
