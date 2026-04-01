@@ -6,7 +6,6 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-// App main application.
 var App = cli.Command{ //nolint:gochecknoglobals,exhaustruct
 	Name:         "validate",
 	Aliases:      nil,
