@@ -12,6 +12,9 @@
   - [Subcommands](#subcommands)
   - [Docker](#docker)
 - [Packages](#packages)
+- [Dependencies](#dependencies)
+  - [Graph](#graph)
+  - [Licenses](#licenses)
 - [License](#license)
 
 ## Summary
@@ -79,6 +82,28 @@ $ docker run codemityio/auxilium
 ```
 
 ## Packages
+
+## Dependencies
+
+### Graph
+
+![](docs/depgraph.svg)
+
+### Licenses
+
+| Package | Licence | Type |
+|----|----|----|
+| github.com/chzyer/readline | https://github.com/chzyer/readline/blob/2972be24d48e/LICENSE | MIT |
+| github.com/cpuguy83/go-md2man/v2/md2man | https://github.com/cpuguy83/go-md2man/blob/v2.0.7/LICENSE.md | MIT |
+| github.com/ghodss/yaml | https://github.com/ghodss/yaml/blob/v1.0.0/LICENSE | MIT |
+| github.com/manifoldco/promptui | https://github.com/manifoldco/promptui/blob/v0.9.0/LICENSE.md | BSD-3-Clause |
+| github.com/russross/blackfriday/v2 | https://github.com/russross/blackfriday/blob/v2.1.0/LICENSE.txt | BSD-2-Clause |
+| github.com/urfave/cli/v2 | https://github.com/urfave/cli/blob/v2.27.7/LICENSE | MIT |
+| github.com/xeipuuv/gojsonpointer | https://github.com/xeipuuv/gojsonpointer/blob/4e3ac2762d5f/LICENSE-APACHE-2.0.txt | Apache-2.0 |
+| github.com/xeipuuv/gojsonreference | https://github.com/xeipuuv/gojsonreference/blob/bd5ef7bd5415/LICENSE-APACHE-2.0.txt | Apache-2.0 |
+| github.com/xeipuuv/gojsonschema | https://github.com/xeipuuv/gojsonschema/blob/v1.2.0/LICENSE-APACHE-2.0.txt | Apache-2.0 |
+| github.com/xrash/smetrics | https://github.com/xrash/smetrics/blob/686a1a2994c1/LICENSE | MIT |
+| gopkg.in/yaml.v2 | https://github.com/go-yaml/yaml/blob/v2.4.0/LICENSE | Apache-2.0 |
 
 ## License
 

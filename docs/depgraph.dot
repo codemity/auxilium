@@ -1,0 +1,48 @@
+digraph DepGraph {
+    fontname="Courier New"
+    splines="ortho"
+    nodesep="1.4"
+    ranksep="0.8"
+    graph [rankdir="TB", pad="0.2"]
+    node [shape="tab", fontname="Courier New", style="filled", fixedsize=false]
+    edge [fontname="Courier New", color="grey66", arrowhead="normal", arrowtail="none", arrowsize="0.6", weight="0.5"]
+    subgraph deps {
+        "github.com/chzyer/readline" [label="github.com/chzyer/readline", color="gray65", fillcolor="gray83", penwidth=1]
+        "github.com/codemityio/auxilium" [label="github.com/codemityio/auxilium", color="gray58", fillcolor="gray99", penwidth=1]
+              "github.com/codemityio/auxilium" -> "github.com/codemityio/auxilium/cmd/select"
+              "github.com/codemityio/auxilium" -> "github.com/codemityio/auxilium/cmd/validate"
+              "github.com/codemityio/auxilium" -> "github.com/codemityio/auxilium/internal/app"
+              "github.com/codemityio/auxilium" -> "github.com/urfave/cli/v2"
+        "github.com/codemityio/auxilium/cmd/select" [label="github.com/codemityio/auxilium/cmd/select", color="gray58", fillcolor="gray99", penwidth=1]
+              "github.com/codemityio/auxilium/cmd/select" -> "github.com/manifoldco/promptui"
+              "github.com/codemityio/auxilium/cmd/select" -> "github.com/urfave/cli/v2"
+        "github.com/codemityio/auxilium/cmd/validate" [label="github.com/codemityio/auxilium/cmd/validate", color="gray58", fillcolor="gray99", penwidth=1]
+              "github.com/codemityio/auxilium/cmd/validate" -> "github.com/ghodss/yaml"
+              "github.com/codemityio/auxilium/cmd/validate" -> "github.com/urfave/cli/v2"
+              "github.com/codemityio/auxilium/cmd/validate" -> "github.com/xeipuuv/gojsonschema"
+        "github.com/codemityio/auxilium/internal/app" [label="github.com/codemityio/auxilium/app", color="gray58", fillcolor="gray99", penwidth=1]
+              "github.com/codemityio/auxilium/internal/app" -> "github.com/urfave/cli/v2"
+        "github.com/cpuguy83/go-md2man/v2/md2man" [label="github.com/cpuguy83/go-md2man/v2/md2man", color="gray65", fillcolor="gray83", penwidth=1]
+              "github.com/cpuguy83/go-md2man/v2/md2man" -> "github.com/russross/blackfriday/v2"
+        "github.com/ghodss/yaml" [label="github.com/ghodss/yaml", color="gray65", fillcolor="gray83", penwidth=1]
+              "github.com/ghodss/yaml" -> "gopkg.in/yaml.v2"
+        "github.com/manifoldco/promptui" [label="github.com/manifoldco/promptui", color="gray65", fillcolor="gray83", penwidth=1]
+              "github.com/manifoldco/promptui" -> "github.com/chzyer/readline"
+              "github.com/manifoldco/promptui" -> "github.com/manifoldco/promptui/list"
+              "github.com/manifoldco/promptui" -> "github.com/manifoldco/promptui/screenbuf"
+        "github.com/manifoldco/promptui/list" [label="github.com/manifoldco/promptui/list", color="gray65", fillcolor="gray83", penwidth=1]
+        "github.com/manifoldco/promptui/screenbuf" [label="github.com/manifoldco/promptui/screenbuf", color="gray65", fillcolor="gray83", penwidth=1]
+        "github.com/russross/blackfriday/v2" [label="github.com/russross/blackfriday/v2", color="gray65", fillcolor="gray83", penwidth=1]
+        "github.com/urfave/cli/v2" [label="github.com/urfave/cli/v2", color="gray65", fillcolor="gray83", penwidth=1]
+              "github.com/urfave/cli/v2" -> "github.com/cpuguy83/go-md2man/v2/md2man"
+              "github.com/urfave/cli/v2" -> "github.com/xrash/smetrics"
+        "github.com/xeipuuv/gojsonpointer" [label="github.com/xeipuuv/gojsonpointer", color="gray65", fillcolor="gray83", penwidth=1]
+        "github.com/xeipuuv/gojsonreference" [label="github.com/xeipuuv/gojsonreference", color="gray65", fillcolor="gray83", penwidth=1]
+              "github.com/xeipuuv/gojsonreference" -> "github.com/xeipuuv/gojsonpointer"
+        "github.com/xeipuuv/gojsonschema" [label="github.com/xeipuuv/gojsonschema", color="gray65", fillcolor="gray83", penwidth=1]
+              "github.com/xeipuuv/gojsonschema" -> "github.com/xeipuuv/gojsonreference"
+        "github.com/xrash/smetrics" [label="github.com/xrash/smetrics", color="gray65", fillcolor="gray83", penwidth=1]
+        "gopkg.in/yaml.v2" [label="gopkg.in/yaml.v2", color="gray65", fillcolor="gray83", penwidth=1]
+    }
+}
+
