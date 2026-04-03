@@ -96,7 +96,6 @@ $ docker run codemityio/auxilium
 | github.com/chzyer/readline | https://github.com/chzyer/readline/blob/2972be24d48e/LICENSE | MIT |
 | github.com/cpuguy83/go-md2man/v2/md2man | https://github.com/cpuguy83/go-md2man/blob/v2.0.7/LICENSE.md | MIT |
 | github.com/ghodss/yaml | https://github.com/ghodss/yaml/blob/v1.0.0/LICENSE | MIT |
-| github.com/ghodss/yaml | https://github.com/ghodss/yaml/blob/v1.0.0/LICENSE | BSD-3-Clause |
 | github.com/manifoldco/promptui | https://github.com/manifoldco/promptui/blob/v0.9.0/LICENSE.md | BSD-3-Clause |
 | github.com/russross/blackfriday/v2 | https://github.com/russross/blackfriday/blob/v2.1.0/LICENSE.txt | BSD-2-Clause |
 | github.com/urfave/cli/v2 | https://github.com/urfave/cli/blob/v2.27.7/LICENSE | MIT |
