@@ -177,6 +177,17 @@ case "$1" in
     -v "${PWD}:${PWD}" \
     -w "${PWD}" \
     "${VENDOR}"/notatio:latest graphviz --input-path="docs/depgraph.dot" --output-format=svg
+  # table of contents
+  notatio toc --document-path=README.md --header="Table of contents" --limiter-right="## Summary" --index=1 \
+    int --start-from-level=1 --start-from-item=1
+  docker run --rm \
+    --name "${BASE_NAME}-pandoc" \
+    -v "${PWD}:${PWD}" \
+    -w "${PWD}" \
+    "${VENDOR}"/pandoc:latest \
+    --wrap=auto --columns=120 \
+    --from=markdown-implicit_figures \
+    --to=gfm --output=README.md README.md
   # licenses
   docker run --rm \
     --name "${BASE_NAME}-go-dev" \
@@ -191,17 +202,6 @@ case "$1" in
     --limiter-left="###" \
     --limiter-right="## License" \
     --index=1
-  # table of contents
-  notatio toc --document-path=README.md --header="Table of contents" --limiter-right="## Summary" --index=1 \
-    int --start-from-level=1 --start-from-item=1
-  docker run --rm \
-    --name "${BASE_NAME}-pandoc" \
-    -v "${PWD}:${PWD}" \
-    -w "${PWD}" \
-    "${VENDOR}"/pandoc:latest \
-    --wrap=auto --columns=120 \
-    --from=markdown-implicit_figures \
-    --to=gfm --output=README.md README.md
   ;;
 
 *)

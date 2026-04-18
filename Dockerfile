@@ -28,7 +28,7 @@ RUN go build \
 
 FROM ${VENDOR}/alpine:${BASE_IMAGE_VERSION} AS final
 
-WORKDIR /opt/app/bin
+WORKDIR /opt/app
 
 ENV PATH="/opt/app/bin:${PATH}"
 
@@ -36,7 +36,8 @@ COPY --from=build /tmp/build/bin/app /opt/app/bin/app
 
 ADD entrypoint.sh /
 
-RUN adduser -D -h /home/commander -s /bin/bash commander
+RUN adduser -D -h /home/commander -s /bin/bash commander \
+    && chown -R commander:commander /opt/app
 
 RUN ["chmod", "+x", "/entrypoint.sh"]
 
