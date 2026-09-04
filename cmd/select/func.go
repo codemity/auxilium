@@ -44,7 +44,7 @@ func action(ctx *cli.Context) error {
 		})
 	}
 
-	templates := &promptui.SelectTemplates{ //nolint:exhaustruct
+	templates := &promptui.SelectTemplates{ //nolint:exhaustruct_v5
 		Label:    "{{ . | yellow }}{{ \":\" | yellow }}",
 		Active:   "> {{ .Name | cyan | bold }}",
 		Inactive: "  {{ .Name | cyan }}",
@@ -63,7 +63,7 @@ func action(ctx *cli.Context) error {
 		return strings.Contains(name, input)
 	}
 
-	prompt := promptui.Select{ //nolint:exhaustruct
+	prompt := promptui.Select{ //nolint:exhaustruct_v5
 		Label:     label,
 		Items:     options,
 		Templates: templates,

@@ -7,7 +7,7 @@ run:
   tests: true
   modules-download-mode: readonly
   allow-parallel-runners: true
-  go: '1.26'
+  go: '1.27'
 
 linters:
   default: none
@@ -35,7 +35,7 @@ linters:
     - errname
     - errorlint
     - exhaustive
-    - exhaustruct
+    - exhaustruct_v5
     - exptostd
     - fatcontext
     - forbidigo
@@ -192,7 +192,7 @@ linters:
   exclusions:
     rules:
       - linters:
-          - exhaustruct
+          - exhaustruct_v5
           - funlen
           - dupl
           - gochecknoglobals
